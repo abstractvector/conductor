@@ -23,8 +23,9 @@ RUN mkdir -p /opt/src \
     && cd /opt/src && tar -xf mdb.tar.gz && rm mdb.tar.gz \
     # Build maridb
     && mkdir -p /tmp/_ \
-    && cd /opt/src/mariadb-${MARIADB_VER} \
-    && cmake . \
+    && cd /opt/src/mariadb-${MARIADB_VER}
+
+RUN cmake . \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DSYSCONFDIR=/etc/mysql \

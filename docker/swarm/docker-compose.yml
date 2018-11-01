@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mosquitto:
-    build: ./mosquitto
+    image: localhost:5000/mosquitto:latest
     container_name: mosquitto
     restart: always
     ports:
@@ -13,7 +13,7 @@ services:
       - /data/mosquitto:/mqtt
 
   node-red:
-    build: ./node-red
+    image: localhost:5000/node-red:latest
     container_name: node-red
     restart: always
     ports:
