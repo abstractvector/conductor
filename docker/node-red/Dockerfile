@@ -1,7 +1,9 @@
 FROM arm32v7/node:latest
 
 RUN mkdir -p /usr/src/node-red \
-    && mkdir /data
+    && mkdir /data \
+    && chown -R node:node /usr/src/node-red \
+    && chown -R node:node /data
 
 WORKDIR /usr/src/node-red
 
