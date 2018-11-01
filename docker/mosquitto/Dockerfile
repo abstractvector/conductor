@@ -7,7 +7,10 @@ RUN wget -q -O - http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | apt-k
 RUN wget -q -O /etc/apt/sources.list.d/mosquitto-stretch.list http://repo.mosquitto.org/debian/mosquitto-stretch.list
 RUN apt-get update && apt-get install -y mosquitto
 
-RUN chown -R mosquitto:mosquitto /mqtt
+RUN mkdir -p /mqtt/config \
+    && mkdir -p /mqtt/data \
+    && mkdir -p /mqtt/log \
+    && chown -R mosquitto:mosquitto /mqtt
 
 USER mosquitto
 
