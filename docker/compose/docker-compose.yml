@@ -3,10 +3,11 @@ version: "3"
 services:
 
   registry:
-    image: budry/registry-arm
+    build: ./registry
     container_name: registry
     restart: always
     ports:
       - 5000:5000
     volumes:
-      - /data/registry:/var/lib/registry
+      - /data/registry/data:/var/lib/registry
+      - /data/registry/config:/etc/docker/registry
