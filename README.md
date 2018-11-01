@@ -100,7 +100,7 @@ When prompted for a password, enter the default: `raspberry`
 Connect to the Raspberry Pi via SSH, now using the same user as you just copied the public key across for.
 
 ```sh
-ssh pi@raspberrypi.local "curl -sSL https://github.com/abstractvector/conductor/blob/master/raspberry-pi/install.sh | sh"
+ssh pi@raspberrypi.local "curl -sSL https://gist.githubusercontent.com/abstractvector/73d554da902cba43298bb7956ba203bf/raw/d47b75eeef77ed02215a78457a1c77c6378b9795/conductor.sh | bash"
 ```
 
 This may take a few minutes but will complete the configuration of the Raspberry Pi, including installation of all software and services. The Raspberry Pi will reboot after the install completes.

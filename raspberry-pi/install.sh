@@ -9,22 +9,22 @@
 ###############################
 
 # Hostname
-read -p "Hostname (conductor): " hostname
-hostname=${hostname:-conductor}
+#read -p "Hostname (conductor): " hostname
+#hostname=${hostname:-conductor}
 
 ###############################
 # Update the Raspberry Pi
 ###############################
 
 # We'll run some commands to confirm the Raspberry Pi non-interactively
-sudo raspi-config nonint do_hostname $hostname # change the hostname to conductor
+sudo raspi-config nonint do_hostname conductor # change the hostname to conductor
 
 # Update the Raspberry Pi to the latest version
 sudo apt update
 sudo apt upgrade -y
 
 # Update the username and group
-sudo usermod -L pi # Lock the account so no password will work
+sudo passwd -d pi # Lock the account so no password will work
 
 # Lock down access via SSH
 sudo sed -i "s/#*PubkeyAuthentication.*/PubkeyAuthentication yes/" /etc/ssh/sshd_config
