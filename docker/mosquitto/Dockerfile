@@ -12,8 +12,6 @@ RUN mkdir -p /mqtt/config \
     && mkdir -p /mqtt/log \
     && chown -R mosquitto:mosquitto /mqtt
 
-USER mosquitto
-
 COPY config /mqtt/config
 VOLUME ["/mqtt/config", "/mqtt/data", "/mqtt/log"]
 
