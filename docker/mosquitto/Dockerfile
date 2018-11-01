@@ -14,6 +14,4 @@ RUN chown -R mosquitto:mosquitto /mqtt
 
 EXPOSE 1883 9001
 
-USER mosquitto
-
 CMD /usr/sbin/mosquitto -c /mqtt/config/mosquitto.conf
