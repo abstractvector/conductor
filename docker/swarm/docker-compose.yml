@@ -2,6 +2,27 @@ version: "3"
 
 services:
 
+  # databases
+
+  mariadb:
+    image: localhost:5000/mariadb:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - /data/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  
+  influxdb:
+    image: hypriot/rpi-influxdb:latest
+    volumes:
+      - /data/influxdb/data:/var/lib/influxdb
+      - /data/influxdb/config:/etc/influxdb/
+    ports:
+      - 8086:8086
+
+  # data processing
+
   mosquitto:
     image: localhost:5000/mosquitto:latest
     ports:
