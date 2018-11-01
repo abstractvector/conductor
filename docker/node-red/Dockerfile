@@ -1,13 +1,13 @@
 FROM arm32v7/node:latest
 
-USER node
-
 RUN mkdir -p /usr/src/node-red \
     && mkdir /data \
     && chown -R node:node /usr/src/node-red \
     && chown -R node:node /data
 
 WORKDIR /usr/src/node-red
+
+USER node
 
 # package.json contains Node-RED NPM module and node dependencies
 COPY package.json /usr/src/node-red/
