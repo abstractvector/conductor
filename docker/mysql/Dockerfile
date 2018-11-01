@@ -15,7 +15,7 @@ RUN mkdir -p /opt/src \
         # Installing needed libs
         libstdc++6 libaio-dev libgnutls28-dev libncurses-dev libcurl4-openssl-dev libxml2 \
         cmake ncurses-dev gnutls-dev libxml2-dev libaio-dev bison libboost-dev curl wget \
-    build-essential liblz4-1 liblz4-dev lzma liblzma-dev openssl libssl-dev \
+        build-essential liblz4-1 liblz4-dev lzma liblzma-dev openssl libssl-dev \
     && update-ca-certificates \
     && apt-get clean \
     # Download and unpack mariadb
@@ -120,6 +120,7 @@ RUN mkdir -p /opt/src \
     && adduser --system --no-create-home --uid 1000 --gid 1000 mysql \
     && chown -R mysql:mysql /var/lib/mysql \
     && chown -R mysql:mysql /run/mysqld
+
 ADD my.cnf /etc/mysql/my.cnf
 EXPOSE 3306
 
