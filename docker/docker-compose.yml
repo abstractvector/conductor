@@ -1,5 +1,17 @@
 version: "3"
+
 services:
+
+  mosquitto:
+    build: ./mosquitto
+    container_name: mosquitto
+    restart: always
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - /data/mosquitto:/mqtt
+
   node-red:
     build: ./node-red
     container_name: node-red
