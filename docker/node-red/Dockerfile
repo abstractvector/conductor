@@ -1,14 +1,7 @@
 FROM arm32v7/node:latest
 
-# add support for gpio library
-RUN apt-get update
-RUN apt-get install python-rpi.gpio
-
-# Home directory for Node-RED application source code.
-RUN mkdir -p /usr/src/node-red
-
-# User data directory, contains flows, config and nodes.
-RUN mkdir /data
+RUN mkdir -p /usr/src/node-red \
+    && mkdir /data
 
 WORKDIR /usr/src/node-red
 
