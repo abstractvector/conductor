@@ -3,9 +3,7 @@ FROM arm32v7/golang as builder
 
 ENV DOCKER_BUILDTAGS include_oss include_gcs
 
-RUN apt-get update \
-    && apt-get install --assume-yes make git \
-    && git clone -b master https://github.com/docker/distribution.git /go/src/github.com/docker/distribution \
+RUN git clone -b master https://github.com/docker/distribution.git /go/src/github.com/docker/distribution \
     && mkdir -p /etc/docker/registry
 
 WORKDIR /go/src/github.com/docker/distribution
