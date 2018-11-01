@@ -6,8 +6,11 @@ ENV DOCKER_BUILDTAGS include_oss include_gcs
 RUN apt-get update \
     && apt-get install --assume-yes make git \
     && git clone -b master https://github.com/docker/distribution.git /go/src/github.com/docker/distribution \
-    && mkdir -p /etc/docker/registry && \
-    cp /go/src/github.com/docker/distribution/cmd/registry/config-dev.yml /etc/docker/registry/config.yml \
+    && mkdir -p /etc/docker/registry
+
+WORKDIR /go/src/github.com/docker/distribution
+
+RUN cp cmd/registry/config-dev.yml /etc/docker/registry/config.yml \
     && make PREFIX=/go clean binaries
 
 # Build a minimal distribution container
