@@ -5,7 +5,7 @@ services:
     container_name: node-red
     restart: always
     ports:
-     - 1880:1880
+      - 1880:1880
     volumes:
       - /data/node-red:/data
 
@@ -13,6 +13,7 @@ services:
     build: ./mysql
     container_name: mysql
     restart: always
-    ports: 3306:3306
+    ports:
+      - 3306:3306
     volumes:
       - /data/mysql:/var/lib/mysql
