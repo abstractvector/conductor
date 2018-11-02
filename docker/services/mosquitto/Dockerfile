@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 
-RUN adduser --system --disabled-password --disabled-login -u 1000 -g 1000 mosquitto \
+RUN adduser --system --disabled-password --disabled-login -uid 1000 -gid 1000 mosquitto \
     && apt-get update \
     && apt-get install -y wget apt-transport-https gnupg2
 
