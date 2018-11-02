@@ -14,7 +14,7 @@ services:
   #    - MYSQL_RANDOM_ROOT_PASSWORD=yes
   
   influxdb:
-    image: hypriot/rpi-influxdb:latest
+    image: localhost:5000/influxdb:latest
     volumes:
       - /data/influxdb/data:/var/lib/influxdb
       - /data/influxdb/config:/etc/influxdb/
