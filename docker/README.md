@@ -22,8 +22,8 @@ Using the official image, a private registry is exposed on port 5000.
 
 All regular services are managed by *Docker Swarm*. These include:
 
+* InfluxDB `(port 8086)`
 * Mosquitto `(ports 1883, 9001)`
-* MySQL `(port 3306)`
 * NodeRED `(port 1880)`
 
 ## Secrets

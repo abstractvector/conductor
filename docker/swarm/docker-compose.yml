@@ -4,14 +4,14 @@ services:
 
   # databases
 
-  mariadb:
-    image: localhost:5000/mariadb:latest
-    ports:
-      - 3306:3306
-    volumes:
-      - /data/mariadb:/var/lib/mysql
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  #mariadb:
+  #  image: localhost:5000/mariadb:latest
+  #  ports:
+  #    - 3306:3306
+  #  volumes:
+  #    - /data/mariadb:/var/lib/mysql
+  #  environment:
+  #    - MYSQL_RANDOM_ROOT_PASSWORD=yes
   
   influxdb:
     image: hypriot/rpi-influxdb:latest
