@@ -6,6 +6,8 @@ services:
 
   mariadb:
     image: jsurf/rpi-mariadb
+    container_name: mariadb
+    restart: always
     ports:
       - 3306:3306
     volumes:
@@ -19,7 +21,6 @@ services:
     restart: always
     volumes:
       - /data/influxdb/data:/var/lib/influxdb
-      - /data/influxdb/config:/etc/influxdb/
     ports:
       - 8086:8086
 
