@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+
+  # databases
+
+  mariadb:
+    image: jsurf/rpi-mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - /data/mariadb:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  
+  influxdb:
+    image: hypriot/rpi-influxdb
+    container_name: influxdb
+    restart: always
+    volumes:
+      - /data/influxdb/data:/var/lib/influxdb
+      - /data/influxdb/config:/etc/influxdb/
+    ports:
+      - 8086:8086
+
+  # data processing
+
+  mosquitto:
+    build: ./mosquitto
+    container_name: mosquitto
+    restart: always
+    ports:
+      - 1883:1883
+      - 9001:9001
+
+  node-red:
+    build: ./node-red
+    container_name: node-red
+    restart: always
+    ports:
+      - 1880:1880
+    volumes:
+      - /data/node-red:/data
