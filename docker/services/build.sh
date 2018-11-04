@@ -10,3 +10,5 @@ docker build -t $REGISTRY_URL/mosquitto:$TAG mosquitto && docker push $REGISTRY_
 docker build -t $REGISTRY_URL/node-red:$TAG node-red && docker push $REGISTRY_URL/node-red:$TAG
 
 docker build -t $REGISTRY_URL/mariadb:$TAG mariadb && docker push $REGISTRY_URL/mariadb:$TAG
+
+docker build -t $REGISTRY_URL/mongodb:$TAG mongodb && docker push $REGISTRY_URL/mongodb:$TAG

@@ -23,6 +23,11 @@ sudo raspi-config nonint do_hostname conductor # change the hostname to conducto
 sudo apt update
 sudo apt upgrade -y
 
+# Increase swap file size (we're going to be working this hard, and we have an SSD)
+sudo sed -i "s/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/" /etc/dphys-swapfile
+sudo /etc/init.d/dphys-swapfile stop
+sudo /etc/init.d/dphys-swapfile start
+
 # Update the username and group
 sudo passwd -d pi # Lock the account so no password will work
 
