@@ -16,16 +16,14 @@ services:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
 
   mongodb:
-    image: localhost:5000/mariadb:latest
-    container_name: mariadb
+    image: localhost:5000/mongodb:latest
+    container_name: mongodb
     restart: always
     ports:
       - 27017:27017
       - 28017:28017
     volumes:
       - /data/mongodb/db:/data/db
-    environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
   
   influxdb:
     image: hypriot/rpi-influxdb
