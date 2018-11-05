@@ -44,6 +44,14 @@ services:
       - 1883:1883
       - 9001:9001
 
+  mosquitto-raw:
+    build: ./mosquitto
+    container_name: mosquitto-raw
+    restart: always
+    ports:
+      - 1884:1883
+      - 9002:9001
+
   node-red:
     build: ./node-red
     container_name: node-red
