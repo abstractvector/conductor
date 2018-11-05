@@ -3,7 +3,8 @@ FROM arm32v7/node:latest
 RUN mkdir -p /usr/src/node-red \
     && mkdir /data \
     && chown -R node:node /usr/src/node-red \
-    && chown -R node:node /data
+    && chown -R node:node /data \
+    && usermod -aG dialout node
 
 WORKDIR /usr/src/node-red
 
