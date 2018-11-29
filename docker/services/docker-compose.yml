@@ -58,6 +58,7 @@ services:
     restart: always
     ports:
       - 1880:1880
+      - 10110:10110 # GPS data from Pepwave
     volumes:
       - /data/node-red:/data
     devices:
