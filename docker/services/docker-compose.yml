@@ -52,6 +52,18 @@ services:
     volumes:
       - ~/data/grafana:/var/lib/grafana
 
+  # rv utilities
+
+  nextcloud:
+    image: nextcloud
+    container_name: nextcloud
+    restart: always
+    user: "1000:1000"
+    ports:
+      - 8080:80
+    volumes:
+      - ~/data/nextcloud:/var/www/html
+
   # rv automation
 
   node-red:
