@@ -3,10 +3,11 @@ version: "3"
 services:
 
   registry:
-    build: ./registry
+    image: registry:latest
     container_name: registry
     restart: always
+    user: 1000
     ports:
       - 5000:5000
     volumes:
-      - /data/registry/data:/var/lib/registry
+      - ~/data/registry:/var/lib/registry
