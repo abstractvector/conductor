@@ -13,8 +13,8 @@ services:
       - 3306:3306
     volumes:
       - ~/data/mariadb:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD_FILE: ~/secrets/mariadb-password
+    env_file:
+      - ~/env/mariadb.env
 
   mongodb:
     image: mongo:latest
