@@ -2,64 +2,40 @@ version: "3"
 
 services:
 
-  # databases
+  # core services
 
   mariadb:
-    image: jsurf/rpi-mariadb
+    image: mariadb:latest
     container_name: mariadb
     restart: always
+    user: "1000:1000"
     ports:
       - 3306:3306
     volumes:
-      - /data/mariadb:/var/lib/mysql
+      - ~/data/mariadb:/var/lib/mysql
     environment:
-      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_ROOT_PASSWORD_FILE: ~/secrets/mariadb-password
 
   mongodb:
-    image: localhost:5000/mongodb:latest
+    image: mongo:latest
     container_name: mongodb
     restart: always
-    ports:
-      - 27017:27017
-      - 28017:28017
+    user: "1000:1000"
     volumes:
-      - /data/mongodb/db:/data/db
-  
+      - ~/data/mongodb:/data/db
+
   influxdb:
-    image: hypriot/rpi-influxdb
+    image: influxdb:latest
     container_name: influxdb
     restart: always
+    user: "1000:1000"
     volumes:
-      - /data/influxdb:/data
-    ports:
-      - 8086:8086
-
-  # data processing
+      - ~/data/influxdb:/var/lib/influxdb
 
   mosquitto:
-    build: ./mosquitto
+    image: eclipse-mosquitto:latest
     container_name: mosquitto
     restart: always
-    ports:
-      - 1883:1883
-      - 9001:9001
-
-  mosquitto-raw:
-    build: ./mosquitto
-    container_name: mosquitto-raw
-    restart: always
-    ports:
-      - 1884:1883
-      - 9002:9001
-
-  node-red:
-    build: ./node-red
-    container_name: node-red
-    restart: always
-    ports:
-      - 1880:1880
-      - 10110:10110 # GPS data from Pepwave
+    user: "1000:1000"
     volumes:
-      - /data/node-red:/data
-    devices:
-      - /dev/ttyUSB0:/dev/ttyUSB0
+      - ~/data/mosquitto:/mosquitto/data
