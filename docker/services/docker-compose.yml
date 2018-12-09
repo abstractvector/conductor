@@ -57,7 +57,7 @@ services:
       - SSH_HOSTUSER=driver
       - SSH_HOSTNAME=adventurousway.com
       - SSH_TUNNEL_REMOTE=8443
-      - SSH_TUNNEL_HOST=localhost
+      - SSH_TUNNEL_HOST=nginx
       - SSH_TUNNEL_LOCAL=443
       - SSH_MODE=-R
     restart: always
