@@ -59,6 +59,7 @@ services:
       - SSH_TUNNEL_REMOTE=8443
       - SSH_TUNNEL_HOST=localhost
       - SSH_TUNNEL_LOCAL=443
+      - SSH_MODE=-R
     restart: always
     volumes:
       - ~/.ssh/id_rsa:/id_rsa
