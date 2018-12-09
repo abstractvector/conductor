@@ -50,6 +50,22 @@ services:
       - 80:80
       - 443:443
 
+  autossh:
+    image: jnovack/autossh
+    container_name: autossh
+    environment:
+      - SSH_HOSTUSER=driver
+      - SSH_HOSTNAME=adventurousway.com
+      - SSH_TUNNEL_REMOTE=8443
+      - SSH_TUNNEL_HOST=localhost
+      - SSH_TUNNEL_LOCAL=443
+    restart: always
+    volumes:
+      - ~/.ssh/id_rsa:/id_rsa
+    dns:
+      - 8.8.8.8
+      - 4.2.2.4
+
   # monitoring
 
   grafana:
