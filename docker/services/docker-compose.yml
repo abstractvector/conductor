@@ -82,8 +82,6 @@ services:
     image: prom/prometheus
     container_name: prometheus
     restart: always
-    ports:
-      - 9090:9090
     volumes:
       - prometheus:/prometheus
     entrypoint:
