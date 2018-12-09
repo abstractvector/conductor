@@ -40,6 +40,17 @@ services:
     volumes:
       - ~/data/mosquitto:/mosquitto/data
 
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    user: "1000:1000"
+    volumes:
+      - ~/data/nginx/certs:/etc/ssl
+    ports:
+      - 80:80
+      - 443:443
+
   # monitoring
 
   grafana:
