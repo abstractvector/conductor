@@ -44,7 +44,6 @@ services:
     build: ./nginx
     container_name: nginx
     restart: always
-    user: "1000:1000"
     volumes:
       - ~/data/nginx/certs:/etc/ssl
     ports:
