@@ -90,6 +90,7 @@ services:
       - --web.console.libraries=/etc/prometheus/console_libraries
       - --web.console.templates=/etc/prometheus/consoles
       - --web.external-url=https://rv.adventurousway.com/prometheus/
+      - --web.route-prefix=/
       - --config.file=/prometheus/prometheus.yml
 
   # rv utilities
