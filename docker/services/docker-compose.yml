@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
 
@@ -131,4 +131,5 @@ services:
 
 volumes:
   prometheus:
-    driver: internal
+    driver: local
+    name: prometheus
