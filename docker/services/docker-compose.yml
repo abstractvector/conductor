@@ -132,4 +132,3 @@ services:
 volumes:
   prometheus:
     driver: internal
-    name: prometheus
