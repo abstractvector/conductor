@@ -93,6 +93,17 @@ services:
       - --web.route-prefix=/
       - --config.file=/prometheus/prometheus.yml
 
+  cadvisor:
+    image: google/cadvisor
+    container_name: cadvisor
+    restart: always
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+
   # rv utilities
 
   nextcloud: # @todo use the fpm version so we can control the user permissions
