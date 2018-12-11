@@ -67,6 +67,16 @@ services:
       - 8.8.8.8
       - 4.2.2.4
 
+  
+  jobs:
+    build:
+      context: https://${GITHUB_TOKEN}:@github.com/abstractvector/conductor-jobs.git
+      dockerfile: docker/Dockerfile
+    container_name: jobs
+    restart: always
+    volumes:
+      - jobs:/var/lib/conductor-jobs/
+
   # monitoring
 
   grafana:
