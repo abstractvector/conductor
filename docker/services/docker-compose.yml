@@ -153,3 +153,6 @@ volumes:
   prometheus:
     driver: local
     name: prometheus
+  jobs:
+    driver: local
+    name: jobs
