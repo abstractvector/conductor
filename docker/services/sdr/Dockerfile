@@ -115,8 +115,8 @@ RUN apt-get -y install git cmake g++ python-dev swig  \
 RUN cd /tmp \
     && git clone --recursive http://gnuradio.org/git/gnuradio.git
 
-RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev python-yaml liborc-0.4-0 liborc-0.4-dev libgmp-dev libmpfr-dev libmpc-dev \
-    && pip3 install mako pyyaml lxml \
+RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev python-yaml liborc-0.4-0 liborc-0.4-dev libgmp-dev libmpfr-dev libmpc-dev libuhd-dev libuhd003.010.003 uhd-soapysdr uhd-host python-numpy python-scipy libzmq5 libzmq3-dev libgtk-3-0 libgtk-vnc-2.0-0 qtbase5-dev \
+    && pip3 install mako pyyaml lxml numpy scipy pyzmq \
     && cd gnuradio \
     && mkdir build \
     && cd build \
@@ -124,14 +124,12 @@ RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev pyth
     && make
 
 RUN cd /tmp/gnuradio/build \
-    && apt-get install -y python-numpy python-scipy libzmq5 libzmq3-dev \
-    && pip3 install numpy scipy pyzmq \
-    && ctest -V \
     && make test \
     && make install
 
 # GR OsmoSDR
-RUN cd /tmp \
+RUN apt-get install -y librtlsdr0 librtlsdr-dev \
+    && cd /tmp \
     && ls -alh /usr/local/bin \
     && git clone git://git.osmocom.org/gr-osmosdr.git \
     && cd gr-osmosdr \
@@ -141,3 +139,9 @@ RUN cd /tmp \
     && make \
     && make install \
     && ldconfig
+
+RUN apt-get install -y x11vnc
+
+ENV DISPLAY :20
+
+EXPOSE 5920
