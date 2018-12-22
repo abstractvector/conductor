@@ -124,8 +124,8 @@ RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev pyth
     && make
 
 RUN cd /tmp/gnuradio/build \
-    && apt-get install -y python-numpy \
-    && pip3 install numpy \
+    && apt-get install -y python-numpy python-scipy libzmq5 libzmq3-dev \
+    && pip3 install numpy scipy pyzmq \
     && ctest -V \
     && make test \
     && make install
