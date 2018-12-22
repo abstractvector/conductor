@@ -113,7 +113,10 @@ RUN apt-get -y install git cmake g++ python-dev swig  \
 
 # GNU Radio
 RUN cd /tmp \
-    && git clone --recursive http://gnuradio.org/git/gnuradio.git \
+    && git clone --recursive http://gnuradio.org/git/gnuradio.git
+
+RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev python-yaml \
+    && pip3 install mako pyyaml lxml \
     && cd gnuradio \
     && mkdir build \
     && cd build \
@@ -124,6 +127,7 @@ RUN cd /tmp \
 
 # GR OsmoSDR
 RUN cd /tmp \
+    && ls -alh /usr/local/bin \
     && git clone git://git.osmocom.org/gr-osmosdr.git \
     && cd gr-osmosdr \
     && mkdir build \
