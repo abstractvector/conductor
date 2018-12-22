@@ -113,7 +113,7 @@ RUN apt-get -y install git cmake g++ python-dev swig  \
 
 # GNU Radio
 RUN cd /tmp \
-    && git clone --recursive http://git.gnuradio.org/git/gnuradio.git \
+    && git clone --recursive http://gnuradio.org/git/gnuradio.git \
     && cd gnuradio \
     && mkdir build \
     && cd build \
