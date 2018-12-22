@@ -115,13 +115,16 @@ RUN apt-get -y install git cmake g++ python-dev swig  \
 RUN cd /tmp \
     && git clone --recursive http://gnuradio.org/git/gnuradio.git
 
-RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev python-yaml \
+RUN apt-get install -y python3-pip libgmp-dev liblog4cpp5v5 liblog4cpp5-dev python-yaml liborc-0.4-0 liborc-0.4-dev \
     && pip3 install mako pyyaml lxml \
     && cd gnuradio \
     && mkdir build \
     && cd build \
     && cmake ../ \
-    && make \
+    && make
+
+RUN cd /tmp/gnuradio/build \
+    && ctest -V \
     && make test \
     && make install
 
