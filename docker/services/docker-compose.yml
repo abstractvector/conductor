@@ -136,6 +136,7 @@ services:
     user: "1000:1000"
     ports:
       - 10110:10110 # Pepwave MAX BR1 GPS Forwarding
+      - 8000:8000/udp # Freematics
     volumes:
       - ~/data/node-red:/data
 
