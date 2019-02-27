@@ -53,7 +53,7 @@ services:
       - grafana
       - prometheus
       - node-red
-      - gocd
+      - jenkins
     volumes:
       - ~/data/nginx/certs:/etc/ssl
     ports:
