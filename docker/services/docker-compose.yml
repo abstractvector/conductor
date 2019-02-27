@@ -157,17 +157,10 @@ services:
     user: "1000:1000"
     ports:
       - 8080:8080
+    environment:
+      - JENKINS_OPTS="--prefix=/jenkins"
     volumes:
       - ~/data/jenkins:/var/jenkins_home
-
-  gocd:
-    image: gocd/gocd-server:v19.1.0
-    container_name: gocd
-    restart: always
-    ports:
-      - 8153:8153
-    volumes:
-      - gocd:/godata
 
 volumes:
   prometheus:
