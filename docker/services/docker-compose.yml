@@ -154,6 +154,14 @@ services:
     volumes:
       - ~/data/jenkins:/var/jenkins_home
 
+  gocd:
+    image: gocd/gocd-server:v19.1.0
+    container_name: gocd
+    restart: always
+    user: "1000:1000"
+    volumes:
+      - gocd:/godata
+
 volumes:
   prometheus:
     driver: local
@@ -161,3 +169,6 @@ volumes:
   jobs:
     driver: local
     name: jobs
+  gocd:
+    driver: local
+    name: gocd
