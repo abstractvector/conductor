@@ -164,7 +164,6 @@ services:
     image: gocd/gocd-server:v19.1.0
     container_name: gocd
     restart: always
-    user: "1000:1000"
     volumes:
       - gocd:/godata
 
