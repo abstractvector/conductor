@@ -9,6 +9,6 @@ COPY --from=docker /usr/local/bin/docker /usr/local/bin/docker
 USER root
 
 RUN groupadd -g 999 docker \
-    && usermod -ag 999 jenkins
+    && usermod -aG docker jenkins
 
 USER jenkins
