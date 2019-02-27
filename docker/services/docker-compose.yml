@@ -151,7 +151,7 @@ services:
   # build tools
 
   jenkins:
-    image: ./jenkins
+    build: ./jenkins
     container_name: jenkins
     restart: always
     user: "1000:1000"
