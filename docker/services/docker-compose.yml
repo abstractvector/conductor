@@ -154,7 +154,6 @@ services:
     build: ./jenkins
     container_name: jenkins
     restart: always
-    user: "1000:1000"
     environment:
       - JENKINS_OPTS="--prefix=/jenkins"
     volumes:
