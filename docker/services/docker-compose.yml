@@ -48,6 +48,12 @@ services:
     build: ./nginx
     container_name: nginx
     restart: always
+    depends_on:
+      - nextcloud
+      - grafana
+      - prometheus
+      - node-red
+      - gocd
     volumes:
       - ~/data/nginx/certs:/etc/ssl
     ports:
