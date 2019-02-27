@@ -164,6 +164,8 @@ services:
     image: gocd/gocd-server:v19.1.0
     container_name: gocd
     restart: always
+    ports:
+      - 8153:8153
     volumes:
       - gocd:/godata
 
