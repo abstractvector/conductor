@@ -162,6 +162,15 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
 
+  nexus:
+    image: sonatype/nexus
+    container_name: nexus
+    restart: always
+    ports:
+     - "8081:8081"
+    volumes:
+      - nexus:/sonatype-work
+
 volumes:
   prometheus:
     driver: local
@@ -172,3 +181,6 @@ volumes:
   gocd:
     driver: local
     name: gocd
+  nexus:
+    driver: local
+    name: nexus
