@@ -163,13 +163,13 @@ services:
       - /usr/bin/docker:/usr/bin/docker
 
   nexus:
-    image: sonatype/nexus
+    image: sonatype/nexus3
     container_name: nexus
     restart: always
     ports:
      - "8081:8081"
     volumes:
-      - nexus:/sonatype-work
+      - nexus:/nexus-data
 
 volumes:
   prometheus:
