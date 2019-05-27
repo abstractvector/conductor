@@ -78,7 +78,7 @@ services:
       - 8.8.8.8
       - 4.2.2.4
 
-  
+
   jobs:
     build:
       context: https://${GITHUB_TOKEN}:@github.com/abstractvector/conductor-jobs.git
@@ -148,6 +148,17 @@ services:
       - 8000:8000/udp # Freematics
     volumes:
       - ~/data/node-red:/data
+
+  homebridge:
+    image: oznu/homebridge:latest
+    restart: always
+    network_mode: host
+    environment:
+      - TZ=America/Los_Angeles
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ~/data/homebridge:/homebridge
 
   # build tools
 
