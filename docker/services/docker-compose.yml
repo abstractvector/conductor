@@ -149,6 +149,17 @@ services:
     volumes:
       - ~/data/node-red:/data
 
+  home-assistant:
+    image: homeassistant/home-assistant
+    container_name: home-assistant
+    restart: always
+    network_mode: host
+    ports:
+      - "8123:8123"
+    volumes:
+      - ~/data/home-assistant:/config
+      - /etc/localtime:/etc/localtime:ro
+
   homebridge:
     image: oznu/homebridge:latest
     container_name: homebridge
