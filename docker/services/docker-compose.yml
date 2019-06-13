@@ -54,6 +54,7 @@ services:
       - prometheus
       - node-red
       - jenkins
+      - home-assistant
     volumes:
       - ~/data/nginx/certs:/etc/ssl
     ports:
