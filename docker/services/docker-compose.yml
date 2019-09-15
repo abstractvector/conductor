@@ -62,25 +62,6 @@ services:
       - 80:80
       - 443:443
 
-  autossh:
-    image: jnovack/autossh
-    container_name: autossh
-    environment:
-      - SSH_HOSTUSER=root
-      - SSH_HOSTNAME=adventurousway.com
-      - SSH_HOSTPORT=2222
-      - SSH_TUNNEL_REMOTE=8443
-      - SSH_TUNNEL_HOST=nginx
-      - SSH_TUNNEL_LOCAL=443
-      - SSH_MODE=-R
-    restart: always
-    volumes:
-      - ~/.ssh/id_rsa:/id_rsa
-    dns:
-      - 8.8.8.8
-      - 4.2.2.4
-
-
   jobs:
     build:
       context: https://${GITHUB_TOKEN}:@github.com/abstractvector/conductor-jobs.git
