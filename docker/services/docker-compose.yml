@@ -50,12 +50,13 @@ services:
     container_name: nginx
     restart: always
     depends_on:
-      - nextcloud
       - grafana
-      - prometheus
-      - node-red
-      - jenkins
       - home-assistant
+      - jenkins
+      - kibana
+      - nextcloud
+      - node-red
+      - prometheus
     volumes:
       - ~/data/nginx/certs:/etc/ssl
     ports:
@@ -182,7 +183,7 @@ services:
   # elastic (elk) stack
 
   elasticsearch:
-    image: elasticsearch:7.3.2
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.2
     container_name: elasticsearch
     environment:
       - bootstrap.memory_lock=true
@@ -190,6 +191,16 @@ services:
       - discovery.type=single-node
     volumes:
       - elasticsearch:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.3.2
+    container_name: kibana
+    environment:
+      - SERVER_NAME: rv.adventurousway.com
+      - SERVER_BASEPATH: /kibana
+      - ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
 
 volumes:
   prometheus:
