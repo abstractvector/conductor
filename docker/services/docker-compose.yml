@@ -202,6 +202,10 @@ services:
     depends_on:
       - elasticsearch
 
+  logstash:
+    build: ./logstash
+    container_name: logstash
+
 volumes:
   prometheus:
     driver: local
