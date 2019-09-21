@@ -196,9 +196,9 @@ services:
     image: docker.elastic.co/kibana/kibana:7.3.2
     container_name: kibana
     environment:
-      - SERVER_NAME: rv.adventurousway.com
-      - SERVER_BASEPATH: /kibana
-      - ELASTICSEARCH_HOSTS: http://elasticsearch:9200
+      - SERVER_NAME: "rv.adventurousway.com"
+      - SERVER_BASEPATH: "/kibana"
+      - ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
     depends_on:
       - elasticsearch
 
