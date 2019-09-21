@@ -179,6 +179,18 @@ services:
     volumes:
       - nexus:/nexus-data
 
+  # elastic (elk) stack
+
+  elasticsearch:
+    image: elasticsearch:7.3.2
+    container_name: elasticsearch
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+
 volumes:
   prometheus:
     driver: local
@@ -186,9 +198,9 @@ volumes:
   jobs:
     driver: local
     name: jobs
-  gocd:
-    driver: local
-    name: gocd
   nexus:
     driver: local
     name: nexus
+  elasticsearch:
+    driver: local
+    name: elasticsearch
