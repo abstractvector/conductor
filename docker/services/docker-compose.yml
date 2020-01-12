@@ -168,6 +168,7 @@ services:
     devices:
       - /dev/ttyACM1:/dev/ttyACM1
     environment:
+      - DECONZ_DEVICE=/dev/ttyACM1
       - DECONZ_WEB_PORT=801
       - DECONZ_WS_PORT=445
       - DECONZ_VNC_PORT=5930
