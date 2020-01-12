@@ -158,6 +158,24 @@ services:
     volumes:
       - ~/data/homebridge:/homebridge
 
+  deconz:
+    image: marthoc/deconz
+    container_name: deconz
+    network_mode: host
+    restart: always
+    volumes:
+      - ~/data/deconz:/root/.local/share/dresden-elektronik/deCONZ
+    devices:
+      - /dev/ttyACM1:/dev/ttyACM1
+    environment:
+      - DECONZ_WEB_PORT=801
+      - DECONZ_WS_PORT=445
+      - DECONZ_VNC_PORT=5930
+      - DECONZ_VNC_PASSWORD=deconz
+      - DECONZ_VNC_MODE=1
+      - DEBUG_INFO=1
+      - TZ=America/Los_Angeles
+
   # build tools
 
   jenkins:
