@@ -109,17 +109,6 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
 
-  # rv utilities
-
-  nextcloud: # @todo use the fpm version so we can control the user permissions
-    image: nextcloud
-    container_name: nextcloud
-    restart: always
-    ports:
-      - 8000:80
-    volumes:
-      - ~/data/nextcloud:/var/www/html
-
   # rv automation
 
   node-red:
