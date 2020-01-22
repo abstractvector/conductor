@@ -54,7 +54,6 @@ services:
       - home-assistant
       - jenkins
       - kibana
-      - nextcloud
       - node-red
       - prometheus
     volumes:
