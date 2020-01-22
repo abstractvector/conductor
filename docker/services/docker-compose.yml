@@ -129,7 +129,7 @@ services:
     ports:
       - "8123:8123"
     devices:
-      - "/dev/ttyACM0:/dev/ttyACM0"
+      - "/dev/zwave:/dev/ttyACM0"
     volumes:
       - ~/data/home-assistant:/config
       - /etc/localtime:/etc/localtime:ro
@@ -154,9 +154,9 @@ services:
     volumes:
       - ~/data/deconz:/root/.local/share/dresden-elektronik/deCONZ
     devices:
-      - /dev/ttyACM1:/dev/ttyACM1
+      - /dev/zigbee:/dev/zigbee
     environment:
-      - DECONZ_DEVICE=/dev/ttyACM1
+      - DECONZ_DEVICE=/dev/zigbee
       - DECONZ_WEB_PORT=801
       - DECONZ_WS_PORT=445
       - DECONZ_VNC_PORT=5930
