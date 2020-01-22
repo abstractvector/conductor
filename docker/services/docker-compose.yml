@@ -112,7 +112,7 @@ services:
   # rv automation
 
   node-red:
-    image: nodered/node-red-docker
+    image: nodered/node-red
     container_name: node-red
     restart: always
     user: "1000:1000"
