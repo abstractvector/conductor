@@ -249,3 +249,9 @@ volumes:
   elasticsearch:
     driver: local
     name: elasticsearch
+  pihole_etc:
+    driver: local
+    name: pihole_etc
+  pihole_dnsmasq:
+    driver: local
+    name: pihole_dnsmasq
