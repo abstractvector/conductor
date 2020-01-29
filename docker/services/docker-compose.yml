@@ -71,6 +71,25 @@ services:
     volumes:
       - jobs:/var/lib/conductor-jobs/
 
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - pihole_etc:/etc/pihole/
+      - pihole_dnsmasq:/etc/dnsmasq.d/
+    environment:
+      - VIRTUAL_HOST=rv.adventurousway.com
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
+      - 8.8.4.4
+    cap_add:
+      - NET_ADMIN
+
   # monitoring
 
   grafana:
