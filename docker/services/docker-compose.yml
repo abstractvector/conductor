@@ -52,7 +52,6 @@ services:
     depends_on:
       - grafana
       - home-assistant
-      - jenkins
       - kibana
       - node-red
       - prometheus
