@@ -189,6 +189,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.3.2
     container_name: elasticsearch
+    restart: always
     environment:
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
@@ -199,6 +200,7 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:7.3.2
     container_name: kibana
+    restart: always
     environment:
       - SERVER_NAME=rv.adventurousway.com
       - SERVER_BASEPATH=/kibana
@@ -209,6 +211,7 @@ services:
   logstash:
     build: ./logstash
     container_name: logstash
+    restart: always
     environment:
       - RABBITMQ_HOST=${RABBITMQ_HOST}
       - RABBITMQ_USERNAME=${RABBITMQ_USERNAME}
